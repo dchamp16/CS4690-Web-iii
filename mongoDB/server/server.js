@@ -17,4 +17,6 @@ const connectDB = async ()=> {
 }
 connectDB();
 
-const logSchema = new mongoose.Schema({})
+const logSchema = new mongoose.Schema({
+    courseId: String,
+}
