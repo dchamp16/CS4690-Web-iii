@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e14b35b-e94f-47fd-9636-a20125708d66" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mongoDB/server/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="9e14b35b-e94f-47fd-9636-a20125708d66" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +73,7 @@
       <workItem from="1726695274438" duration="13000" />
       <workItem from="1729029134096" duration="454000" />
       <workItem from="1729029847866" duration="495000" />
-      <workItem from="1729043243299" duration="3275000" />
+      <workItem from="1729043243299" duration="3310000" />
     </task>
     <servers />
   </component>
