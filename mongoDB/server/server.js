@@ -13,6 +13,8 @@ app.use(express.json());
 
 const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@web3project.ebt9u.mongodb.net/mongodbweb3practicum?retryWrites=true&w=majority&appName=web3project`;
 
+console.log(MONGODB_URI)
+
 const connectDB = async ()=> {
     try{
         await mongoose.connect(MONGODB_URI);

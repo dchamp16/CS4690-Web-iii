@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "server": "json-server db.json --routes routes.json"
+    "server": "json-server db.json --routes routes.json",
+    "database" : "node server/server.js --watch"
   },
   "devDependencies": {
     "json-server": "0.17.0"
