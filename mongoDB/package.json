@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "server": "json-server db.json --routes routes.json",
-    "database" : "node server/server.js --watch"
+    "database" : "node --watch server/server.js"
   },
   "devDependencies": {
     "json-server": "0.17.0"

@@ -1,51 +1,29 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors')
-
-const PORT = 8000
+const cors = require('cors');
 const app = express();
-
+const PORT = 8000;
 
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
-
 const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@web3project.ebt9u.mongodb.net/mongodbweb3practicum?retryWrites=true&w=majority&appName=web3project`;
 
-console.log('Your mongodb URI: ', MONGODB_URI)
-
-const connectDB = async ()=> {
-    try{
-        await mongoose.connect(MONGODB_URI);
-        console.log("Connected to DB");
-    }catch(err){
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => {
         console.error('MongoDB connection error:', err);
         process.exit(1);
-    }
-}
-connectDB();
-
-const logSchema = new mongoose.Schema({
-    courseId: String,
-    uvuId: String,
-    text: String,
-    date: Date
-})
+    });
 
 const courseSchema = new mongoose.Schema({
     id: String,
-    display: String
-})
+    display: String,
+});
 
-const Log = mongoose.model('logs', logSchema);
-const Course = mongoose.model('courses', courseSchema);
+const Course = mongoose.model('Course', courseSchema);
 
-app.get('/', (req, res) => {
-    res.send('Server Running')
-})
-
-// Get all courses
 app.get('/api/v1/courses', async (req, res) => {
     try {
         const courses = await Course.find({});
@@ -54,46 +32,44 @@ app.get('/api/v1/courses', async (req, res) => {
         res.status(500).json({ error: 'Error fetching courses' });
     }
 });
-// Get all logs
-app.get('/api/v1/logs', async (req, res) => {
-    try{
-        const logs = await Log.find({});
-        res.json(logs);
-    }catch(error){
-        res.status(500).json({ error: 'Error fetching logs' });
-    }
-})
 
-// Add a new log
-app.post('/api/v1/logs', async (req, res) => {
+app.post('/api/v1/courses', async (req, res) => {
     try {
-        const newLog = new Log(req.body);
-        await newLog.save();
-        res.status(201).json(newLog);
-    } catch (error) {
-        console.error('Error adding log:', error);
-        res.status(500).json({ error: 'Error adding log' });
-    }
-});
+        const { id, display } = req.body;
 
-// Delete a log by ID
-app.delete('/api/v1/logs/:id', async (req, res) => {
-    try {
-        const logId = req.params.id;
-        const deletedLog = await Log.findByIdAndDelete(logId);
-        
-        if (!deletedLog) {
-            return res.status(404).json({ error: 'Log not found' });
+        const existingCourse = await Course.findOne({ id });
+        if (existingCourse) {
+            return res.status(400).json({ error: 'Course ID already exists' });
         }
 
-        res.status(200).json({ message: 'Log deleted successfully' });
+        const newCourse = new Course({ id, display });
+        await newCourse.save();
+        res.status(201).json(newCourse);
     } catch (error) {
-        console.error('Error deleting log:', error);
-        res.status(500).json({ error: 'Error deleting log' });
+        console.error('Error adding course:', error);
+        res.status(500).json({ error: 'Error adding course' });
     }
 });
+
+app.delete('/api/v1/courses/:id', async (req, res) => {
+    try {
+        const courseId = req.params.id;
+        console.log(`Deleting course with ID: ${courseId}`); // This should log the courseId
+
+        const deletedCourse = await Course.findOneAndDelete({ id: { $regex: new RegExp(`^${courseId}$`, 'i') } });
+        if (!deletedCourse) {
+            console.log('Course not found'); // Debug log
+            return res.status(404).json({ error: 'Course not found' });
+        }
+        res.status(200).json({ message: 'Course deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting course:', error);
+        res.status(500).json({ error: 'Error deleting course' });
+    }
+});
+
 
 
 app.listen(PORT, () => {
-    console.log(`Listening to port: ${PORT} \n http://localhost:${PORT}/`)
-})
+    console.log(`Server running at http://localhost:${PORT}/`);
+});

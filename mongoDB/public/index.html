@@ -1,97 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- DONE: set the lang attribute to American English -->
-  <head>
-    <title>Student Logs</title>
-    <!-- DONE: set the characterset to utf8 -->
-    <meta charset="UTF-8" />
-    <!-- DONE: temporarily use stackoverflow's favicon. "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico" -->
-    <link
-      rel="icon"
-      href="https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico"
-    />
-    <!-- Load Jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- DONE: Load the CSS file -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <form>
-        <div class="form-group">
-          <label for="course">Select Course</label>
-          <select
-            class="form-control"
-            aria-label="Select Course"
-            id="course"
-            name="course"
-            data-cy="course_select"
-          >
-            <!-- DONE: The following options are currently static values to show you sample data. -->
-            <!-- DONE: AJAX to replace them with dynamic data from GET https://json-server-ft3qa5--3000.local.webcontainer.io/api/v1/courses -->
-            <!-- NOTE: all AJAX in this project is via fetch -->
-            <!-- Use your own unique URL you recorded, not the sample one above. -->
-            <option selected value="">Choose Courses</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <!-- DONE: Don't show the UVU ID text input box until a course was selected above. -->
-          <!-- DONE: If course ever becomes unselected, don't show the UVU ID text input box. -->
-          <label id="uvuIdLabel" for="uvuId" style="display: none"
-            >UVU ID</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="uvuId"
-            name="uvuId"
-            data-cy="uvuId_input"
-            style="display: none"
-            maxlength="8"
-            pattern="\d*"
-            placeholder="10234567"
-          />
-        </div>
-
-        <h3
-          id="uvuIdDisplay"
-          class="mt-3"
-          data-cy="uvuIdDisplay"
-          style="display: none"
-        >
-          Student Logs for 10234567
-        </h3>
-
-        <ul class="list-group" data-cy="logs">
-          <!-- DONE: Click anywhere on the log to toggle visibility of the log (text only, not the date) -->
-        </ul>
-
-        <div class="form-group mt-3">
-          <label for="newLog">New Log</label>
-          <textarea
-            class="form-control"
-            id="newLog"
-            style="height: 75px"
-            aria-label="add log textarea"
-            data-cy="log_textarea"
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          class="btn btn-primary"
-          data-cy="add_log_btn"
-          disabled
-        >
-          Add Log
-        </button>
-      </form>
+<!-- DONE: set the lang attribute to American English -->
+<head>
+  <title>Student Logs</title>
+  <!-- DONE: set the characterset to utf8 -->
+  <meta charset="UTF-8" />
+  <!-- DONE: temporarily use stackoverflow's favicon. "https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico" -->
+  <link
+          rel="icon"
+          href="https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico"
+  />
+  <!-- Load Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- fontawesome -->
+  <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  >
+  <!-- DONE: Load the CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="course">Select Course</label>
+      <select
+              class="form-control"
+              aria-label="Select Course"
+              id="course"
+              name="course"
+              data-cy="course_select"
+      >
+        <!-- DONE: The following options are currently static values to show you sample data. -->
+        <!-- DONE: AJAX to replace them with dynamic data from GET https://json-server-ft3qa5--3000.local.webcontainer.io/api/v1/courses -->
+        <!-- NOTE: all AJAX in this project is via fetch -->
+        <!-- Use your own unique URL you recorded, not the sample one above. -->
+        <option selected value="">Choose Courses</option>
+      </select>
+      <!-- NEW: Added delete course button -->
+      <button
+              id="deleteCourseBtn"
+              class="btn btn-danger"
+              style="display: none;"
+      >
+        Delete Selected Course
+      </button>
     </div>
-    <!-- DONE: Load the JS file -->
-    <script src="script.js"></script>
-  </body>
-  <!-- DONE: add appropriate comments you feel are necessary, if any, for the next coder to understand -->
+
+    <div class="form-group">
+      <!-- DONE: Don't show the UVU ID text input box until a course was selected above. -->
+      <!-- DONE: If course ever becomes unselected, don't show the UVU ID text input box. -->
+      <label id="uvuIdLabel" for="uvuId" style="display: none"
+      >UVU ID</label
+      >
+      <input
+              type="text"
+              class="form-control"
+              id="uvuId"
+              name="uvuId"
+              data-cy="uvuId_input"
+              style="display: none"
+              maxlength="8"
+              pattern="\d*"
+              placeholder="10234567"
+      />
+    </div>
+
+    <h3
+            id="uvuIdDisplay"
+            class="mt-3"
+            data-cy="uvuIdDisplay"
+            style="display: none"
+    >
+      Student Logs for 10234567
+    </h3>
+
+    <ul class="list-group" data-cy="logs">
+      <!-- DONE: Click anywhere on the log to toggle visibility of the log (text only, not the date) -->
+    </ul>
+
+    <div class="form-group mt-3">
+      <label for="newLog">New Log</label>
+      <textarea
+              class="form-control"
+              id="newLog"
+              style="height: 75px"
+              aria-label="add log textarea"
+              data-cy="log_textarea"
+      ></textarea>
+    </div>
+
+    <button
+            type="submit"
+            class="btn btn-primary"
+            data-cy="add_log_btn"
+            disabled
+    >
+      Add Log
+    </button>
+  </form>
+</div>
+<!-- DONE: Load the JS file -->
+<script src="script.js"></script>
+</body>
+<!-- DONE: add appropriate comments you feel are necessary, if any, for the next coder to understand -->
 </html>

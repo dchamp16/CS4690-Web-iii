@@ -53,22 +53,22 @@ label {
 
 /* Button styling */
 .btn {
-  display: inline-block;
+  display: block;
   font-family: 'Lato', sans-serif;
   font-weight: 700;
   text-align: center;
   cursor: pointer;
   background-color: #21735e;
   color: white;
-  border: 1px solid transparent;
-  padding: 0.5rem 1rem;
-  font-size: 1.1rem;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
   border-radius: 0.3rem;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .btn:hover {
-  background-color: #1e5c4b;
+  background-color: #1e5c4b; /* Darker shade for hover effect */
 }
 
 .btn:disabled {
