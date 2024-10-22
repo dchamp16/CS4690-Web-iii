@@ -8,7 +8,10 @@ const PORT = 8000;
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 
-const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@web3project.ebt9u.mongodb.net/mongodbweb3practicum?retryWrites=true&w=majority&appName=web3project`;
+const MONGODB_USERNAME = process.env.MONGODB_USERNAME;
+const MONGODB_PASSWORD = process.env.MONGODB_PASSWORD;
+
+const MONGODB_URI = `your uri`;
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
