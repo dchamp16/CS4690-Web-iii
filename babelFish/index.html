@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Translator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-center">Voice Translator</h1>
+    <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="startRecognition()">Start Voice Recognition</button>
+    </div>
+    <div class="text-center mt-3">
+        <p id="recognizedText" class="font-weight-bold">Recognized Text: <span id="transcript" class="text-secondary">None</span></p>
+    </div>
+    <div class="text-center mt-3">
+        <div id="status" class="alert alert-info" role="alert">Voice recognition status: Idle</div>
+    </div>
+    <div id="translations" class="mt-4"></div>
+</div>
+
+<!-- Link to the external JS file -->
+<script src="voiceRecognition.js"></script>
+</body>
+</html>
