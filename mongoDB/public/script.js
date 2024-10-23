@@ -48,7 +48,7 @@ $(document).ready(function () {
             $('#uvuIdLabel, #uvuId').show();
             $('.form-group.mt-3, button[data-cy="add_log_btn"]').show();
             $('#deleteCourseBtn').show();
-            loadLogs();
+            loadLogs(); // Load logs immediately after selecting a course
         } else {
             $('#uvuIdLabel, #uvuId').hide();
             $('.form-group.mt-3, button[data-cy="add_log_btn"]').hide();
@@ -73,7 +73,14 @@ $(document).ready(function () {
         }
     });
 
-    $('#uvuId').on('input', loadLogs);
+    $('#uvuId').on('input', function () {
+        validateForm(); // Validate form when UVU ID changes
+        loadLogs(); // Load logs when UVU ID changes
+    });
+
+    $('textarea[data-cy="log_textarea"]').on('input', function () {
+        validateForm(); // Validate form when log text changes
+    });
 
     function loadLogs() {
         const uvuId = $('#uvuId').val();
@@ -121,10 +128,7 @@ $(document).ready(function () {
             deleteLog(logId);
         });
 
-        $('button[data-cy="add_log_btn"]').prop(
-            'disabled',
-            !$('textarea[data-cy="log_textarea"]').val().trim()
-        );
+        validateForm();
     }
 
     function deleteLog(logId) {
@@ -143,6 +147,36 @@ $(document).ready(function () {
         }
     }
 
+    // Handle log submission
+    $('form').submit(function (event) {
+        event.preventDefault();
+        const newLog = {
+            courseId: $('#course').val(),
+            uvuId: $('#uvuId').val(),
+            text: $('#newLog').val().trim(),
+            date: new Date().toISOString(),
+        };
+
+        if (newLog.text && newLog.courseId && newLog.uvuId) {
+            $.ajax({
+                url: 'http://localhost:8000/api/v1/logs',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(newLog),
+                success: function () {
+                    alert('Log added successfully!');
+                    $('#newLog').val('');
+                    loadLogs();
+                },
+                error: function () {
+                    alert('Error adding log. Please try again later.');
+                }
+            });
+        } else {
+            alert('Please ensure all fields are filled correctly.');
+        }
+    });
+
     function formatCourseId(courseId) {
         const regex = /^([a-zA-Z]+)(\d+)([a-zA-Z]*)$/;
         const match = courseId.match(regex);
@@ -153,6 +187,12 @@ $(document).ready(function () {
             return `${prefix} ${number}${suffix ? ' ' + suffix : ''}`;
         }
         return courseId.toUpperCase();
+    }
+
+    function validateForm() {
+        const uvuIdValid = $('#uvuId').val().length === 8 && /^\d+$/.test($('#uvuId').val());
+        const logTextValid = $('#newLog').val().trim().length > 0;
+        $('button[data-cy="add_log_btn"]').prop('disabled', !(uvuIdValid && logTextValid));
     }
 
     loadCourses();
