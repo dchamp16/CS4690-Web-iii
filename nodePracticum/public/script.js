@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     try {
       const response = await fetch(
-        'https://jsonserverbjcvss-4sov-br3y2725--3000--9569b1ab.local-credentialless.webcontainer.io/logs',
+          'http://localhost:4000/logs',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
