@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
@@ -7,7 +10,6 @@
     <list default="true" id="9e14b35b-e94f-47fd-9636-a20125708d66" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nodePracticum/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/nodePracticum/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nodePracticum/public/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/nodePracticum/public/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +55,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "rearrange.code.on.save": "true",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.sourceCode",
     "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
@@ -98,7 +101,7 @@
       <workItem from="1729606267137" duration="994000" />
       <workItem from="1729652142905" duration="2586000" />
       <workItem from="1730149933096" duration="140000" />
-      <workItem from="1730866931975" duration="1994000" />
+      <workItem from="1730866931975" duration="3277000" />
     </task>
     <servers />
   </component>
