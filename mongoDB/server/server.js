@@ -9,15 +9,16 @@ const PORT = 8000;
 // Middleware setup
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const MONGODB_USERNAME = process.env.MONGODB_USERNAME;
 const MONGODB_PASSWORD = process.env.MONGODB_PASSWORD;
 
 // MongoDB connection string
-const MONGODB_URI = `your uri`;
+const MONGODB_URI = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@web3project.ebt9u.mongodb.net/mongodbweb3practicum?retryWrites=true&w=majority&appName=web3project`;
 
 // Connect to MongoDB
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => {
         console.error('MongoDB connection error:', err);
@@ -55,6 +56,12 @@ app.get('/api/v1/courses', async (req, res) => {
 app.post('/api/v1/courses', async (req, res) => {
     try {
         const { id, display } = req.body;
+
+        // Validate incoming data
+        if (!id || !display) {
+            return res.status(400).json({ error: 'Both id and display fields are required' });
+        }
+
         const existingCourse = await Course.findOne({ id });
         if (existingCourse) {
             return res.status(400).json({ error: 'Course ID already exists' });

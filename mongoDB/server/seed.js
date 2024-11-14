@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@web3project.ebt9u.mongodb.net/mongodbweb3practicum?retryWrites=true&w=majority&appName=web3project`;
 
 
+
 // Same schema as server.js
 const logSchema = new mongoose.Schema({ courseId: String, uvuId: String, text: String, date: Date });
 const courseSchema = new mongoose.Schema({ id: String, display: String });
