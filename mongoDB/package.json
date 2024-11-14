@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "server": "json-server db.json --routes routes.json",
-    "database" : "node --watch server/server.js"
+    "database" : "node --watch server/server.js",
+    "seed": "node --env-file=../.env .\\seed.js"
   },
   "devDependencies": {
     "json-server": "0.17.0"
