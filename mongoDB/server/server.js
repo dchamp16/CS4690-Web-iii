@@ -13,9 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 
 const MONGODB_USERNAME = process.env.MONGODB_USERNAME;
 const MONGODB_PASSWORD = process.env.MONGODB_PASSWORD;
+const MONGODB_COLLECTION = process.env.MONGODB_COLLECTION;
+const MONGODB_CLUSTER = process.env.MONGODB_CLUSTER;
 
 // MongoDB connection string
-const MONGODB_URI = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@web3project.ebt9u.mongodb.net/mongodbweb3practicum?retryWrites=true&w=majority&appName=web3project`;
+const MONGODB_URI = `mongodb+srv://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@${MONGODB_CLUSTER}.ebt9u.mongodb.net/${MONGODB_COLLECTION}?retryWrites=true&w=majority&appName=${MONGODB_CLUSTER}`;
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI)

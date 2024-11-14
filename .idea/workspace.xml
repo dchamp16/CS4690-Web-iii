@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9e14b35b-e94f-47fd-9636-a20125708d66" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongoDB/server/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/server/seed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongoDB/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mongoDB/testMongodb.js" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/testMongodb.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
