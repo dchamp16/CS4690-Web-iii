@@ -1,9 +1,9 @@
-import { WebSocketServer } from 'ws';
-import { createServer } from 'http';
-import dotenv from 'dotenv';
-import express from 'express';
-import axios from 'axios';
-import cors from 'cors';
+import { WebSocket, WebSocketServer } from "ws";
+import { createServer } from "http";
+import dotenv from "dotenv";
+import express from "express";
+import axios from "axios";
+import cors from "cors";
 
 dotenv.config();
 
@@ -17,32 +17,35 @@ app.use(cors());
 const server = createServer(app);
 const wss = new WebSocketServer({ server });
 
-app.post('/translate', async (req, res) => {
+app.post("/translate", async (req, res) => {
   const { text, targetLanguage } = req.body;
   try {
-    const response = await axios.post(`https://translation.googleapis.com/language/translate/v2?key=${apiKey}`, {
-      q: text,
-      target: targetLanguage,
-    });
+    const response = await axios.post(
+      `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+      {
+        q: text,
+        target: targetLanguage,
+      },
+    );
     const translation = response.data.data.translations[0].translatedText;
     res.json({ translation });
   } catch (error) {
-    console.error('Translation error:', error.message);
-    res.status(500).json({ error: 'Translation failed' });
+    console.error("Translation error:", error.message);
+    res.status(500).json({ error: "Translation failed" });
   }
 });
 
-wss.on('connection', (ws) => {
-  console.log('New WebSocket client connected');
+wss.on("connection", (ws) => {
+  console.log("New WebSocket client connected");
 
-  ws.on('message', async (message) => {
+  ws.on("message", async (message) => {
     try {
       const data = JSON.parse(message);
       const { text, username, sourceLanguage, targetLanguage } = data;
 
       if (!text || !username || !sourceLanguage || !targetLanguage) {
-        console.error('Invalid message format received');
-        ws.send(JSON.stringify({ error: 'Invalid message format' }));
+        console.error("Invalid message format received");
+        ws.send(JSON.stringify({ error: "Invalid message format" }));
         return;
       }
 
@@ -59,7 +62,9 @@ wss.on('connection', (ws) => {
         timestamp: Date.now(),
       };
 
-      console.log(`Message from ${username}: ${text} -> Translated: ${translatedMessage.translation}`);
+      console.log(
+        `Message from ${username}: ${text} -> Translated: ${translatedMessage.translation}`,
+      );
 
       wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
@@ -67,17 +72,17 @@ wss.on('connection', (ws) => {
         }
       });
     } catch (error) {
-      console.error('Error handling message:', error.message);
-      ws.send(JSON.stringify({ error: 'Error processing message' }));
+      console.error("Error handling message:", error.message);
+      ws.send(JSON.stringify({ error: "Error processing message" }));
     }
   });
 
-  ws.on('close', () => {
-    console.log('WebSocket client disconnected');
+  ws.on("close", () => {
+    console.log("WebSocket client disconnected");
   });
 
-  ws.on('error', (error) => {
-    console.error('WebSocket error:', error.message);
+  ws.on("error", (error) => {
+    console.error("WebSocket error:", error.message);
   });
 });
 
