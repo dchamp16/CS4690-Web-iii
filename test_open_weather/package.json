@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "open_weather",
   "version": "1.0.0",
   "main": "app.js",

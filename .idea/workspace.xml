@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9e14b35b-e94f-47fd-9636-a20125708d66" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/server/seed.js" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/server/seed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDB/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_open_weather/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/test_open_weather/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_open_weather/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_open_weather/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,22 +33,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.database.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.database.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -118,6 +117,7 @@
       <workItem from="1730149933096" duration="140000" />
       <workItem from="1730766614549" duration="414000" />
       <workItem from="1731615489798" duration="765000" />
+      <workItem from="1732644128522" duration="585000" />
     </task>
     <servers />
   </component>
