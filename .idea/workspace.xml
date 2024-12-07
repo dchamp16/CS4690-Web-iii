@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e14b35b-e94f-47fd-9636-a20125708d66" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_open_weather/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/test_open_weather/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_open_weather/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test_open_weather/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/eslint.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/tsconfig.node.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/megaPracticum/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +67,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/megaPracticum" />
       <recent name="$PROJECT_DIR$/mongoDB" />
       <recent name="$PROJECT_DIR$/mongoDB/server" />
       <recent name="$PROJECT_DIR$" />
@@ -85,7 +93,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17890.13" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-WS-241.14494.235" />
       </set>
     </attachedChunks>
   </component>
@@ -118,6 +126,7 @@
       <workItem from="1730766614549" duration="414000" />
       <workItem from="1731615489798" duration="765000" />
       <workItem from="1732644128522" duration="585000" />
+      <workItem from="1733549718648" duration="406000" />
     </task>
     <servers />
   </component>
