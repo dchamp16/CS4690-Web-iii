@@ -8,7 +8,7 @@ export default defineConfig({
   build: {
     outDir: 'dist', // Output directory for production build
     rollupOptions: {
-      input: 'index.html', // Entry file for Vite
+      input: './index.html', // Entry file for Vite
     },
   },
 });
