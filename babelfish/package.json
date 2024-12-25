@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
-    "start": "npm run build && npm run server"
+    "start": "npm run server"
   },
   "engines": {
     "node": "18.x"
