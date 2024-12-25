@@ -4,8 +4,7 @@ import dotenv from "dotenv";
 import express from "express";
 import axios from "axios";
 import cors from "cors";
-import path from 'path';
-
+import path from "path";
 
 dotenv.config();
 
@@ -20,12 +19,17 @@ const server = createServer(app);
 const wss = new WebSocketServer({ server });
 
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, 'dist')));
+const isProduction = process.env.NODE_ENV === "production";
 
+if (isProduction) {
+  // Serve static files from Vite build directory
+  app.use(express.static(path.join(__dirname, "dist")));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
+  // Fallback for SPA routing
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist", "index.html"));
+  });
+}
 
 app.post("/translate", async (req, res) => {
   const { text, targetLanguage } = req.body;
@@ -35,7 +39,7 @@ app.post("/translate", async (req, res) => {
       {
         q: text,
         target: targetLanguage,
-      },
+      }
     );
     const translation = response.data.data.translations[0].translatedText;
     res.json({ translation });
@@ -73,7 +77,7 @@ wss.on("connection", (ws) => {
       };
 
       console.log(
-        `Message from ${username}: ${text} -> Translated: ${translatedMessage.translation}`,
+        `Message from ${username}: ${text} -> Translated: ${translatedMessage.translation}`
       );
 
       wss.clients.forEach((client) => {
