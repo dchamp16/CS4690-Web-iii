@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babelfishinstall": "cd babelfish && npm install ",
-    "babelfish": "cd babelfish && npm run build && npm run server"
+    "babelfishinstall": "cd babelfish && npm install && npm run build",
+    "babelfish": "cd babelfish && npm run server"
 
   },
   "keywords": [],
