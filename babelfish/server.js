@@ -4,6 +4,8 @@ import dotenv from "dotenv";
 import express from "express";
 import axios from "axios";
 import cors from "cors";
+import path from 'path';
+
 
 dotenv.config();
 
@@ -16,6 +18,14 @@ app.use(cors());
 
 const server = createServer(app);
 const wss = new WebSocketServer({ server });
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, 'dist')));
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 app.post("/translate", async (req, res) => {
   const { text, targetLanguage } = req.body;
@@ -55,7 +65,7 @@ wss.on("connection", (ws) => {
       });
 
       const translatedMessage = {
-        id: Math.random().toString(36).substring(7),
+        id: `${Date.now()}-${Math.random().toString(36).substring(7)}`,
         text,
         translation: response.data.translation,
         sender: username,

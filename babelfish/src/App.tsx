@@ -96,14 +96,14 @@ function App() {
           sourceLanguage: primaryLanguage.startsWith("ja")
             ? "ja"
             : primaryLanguage.startsWith("es")
-              ? "es"
-              : "en",
+            ? "es"
+            : "en",
           targetLanguage: secondaryLanguage.startsWith("ja")
             ? "ja"
             : secondaryLanguage.startsWith("es")
-              ? "es"
-              : "en",
-        }),
+            ? "es"
+            : "en",
+        })
       );
     }
   };
@@ -171,8 +171,8 @@ function App() {
               {primaryLanguage === "ja-JP"
                 ? "入る"
                 : primaryLanguage === "es-ES"
-                  ? "Entrar"
-                  : "Enter"}
+                ? "Entrar"
+                : "Enter"}
             </button>
           </form>
         </div>
@@ -226,8 +226,10 @@ function App() {
         <div className="space-y-4">
           {messages.map((message) => (
             <div
-              key={message.id}
-              className={`flex flex-col ${message.sender === username ? "items-end" : "items-start"}`}
+              key={`${message.id}-${message.timestamp}`}
+              className={`flex flex-col ${
+                message.sender === username ? "items-end" : "items-start"
+              }`}
             >
               <div className="flex items-center space-x-2 mb-1">
                 <span className="text-sm text-gray-600">{message.sender}</span>
